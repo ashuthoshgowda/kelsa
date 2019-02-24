@@ -41,7 +41,7 @@ def job_detail(job_type=None, invalid_args=False):
 
     if request.method == 'POST':
         if form.validate_on_submit():
-            flash('Login requested for job_description {}'.format(
+            flash('Job description - {}'.format(
                 form.job_description.data))
             return redirect(url_for('thank_you_poster'))
         else:
