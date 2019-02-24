@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <style>
@@ -223,9 +224,13 @@ text-transform: Capitalize;
 
 </html>
   <div class="col-md-12">
-      <a href="/w3images/lights.jpg">
-        <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
-        </a>
+    {% if task.job_type == "Cook" %}
+        <i class='fas fa-drumstick-bite' style='font-size:48px;'></i>
+    {% elif task.job_type == "Driver" %}
+        <i class='fas fa-truck-pickup' style='font-size:48px;'></i>
+    {% elif task.job_type == "Gardener" %}
+        <i class='fas fa-tree' style='font-size:48px;'></i>
+    {% endif %}
   </div>
 
 

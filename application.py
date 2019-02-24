@@ -35,7 +35,7 @@ def job_seeker():
     elif request.method == 'GET':
         tasks = [{"name":"Monica",
         "rate":45,
-        "job_type":"Garderner",
+        "job_type":"Gardener",
         "jd":"Mow the lawn - 14ft * 20ft"},
         {"name":"Erica",
         "rate":30,
@@ -47,7 +47,7 @@ def job_seeker():
         "jd":"Drive my car from the Downtown Bar"},
         {"name":"Tina",
         "rate":35,
-        "job_type":"Garderner",
+        "job_type":"Gardener",
         "jd":"Mow the lawn - 14ft * 20ft"}]
 
         task = random.choice(tasks)
