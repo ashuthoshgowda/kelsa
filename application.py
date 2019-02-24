@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request, redirect, flash
 from docusign import embedded_signing_ceremony
 from config import Config
-from forms import JobSeekerForm
+from forms import JobPosterform
 
 
 application = Flask(__name__)
@@ -37,7 +37,7 @@ def job_poster():
 
 @application.route('/job_detail/<job_type>', methods=['GET', 'POST'])
 def job_detail(job_type=None, invalid_args=False):
-    form = JobSeekerForm()
+    form = JobPosterform()
 
     if request.method == 'POST':
         if form.validate_on_submit():

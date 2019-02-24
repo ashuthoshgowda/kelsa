@@ -16,9 +16,18 @@
                   {{ form.job_description.label }}<br>
                   {{ form.job_description(size=32) }}
               </p>
-              <p>{{ form.post_job() }}</p>
+              <p>
+                  {{ form.address.label }}<br>
+                  {{ form.address(size=32) }}
+              </p>
+              <p>
+              {{ form.start_time }}
+
+              <p>
+              <p>{{ form.submit() }}</p>
           </form>
-          
+
+
           {% with messages = get_flashed_messages() %}
           {% if messages %}
           <ul>
