@@ -2,24 +2,45 @@
 
 {% block content %}
 
+<body>
+<br>
+<br>
+<br>
 <div class="container">
-  <h1 class="logo">I am looking to hire a :</h1>
+  <div class="page-header">
+    <h1>I am looking to Hire a:</h1>
+  </div>
+
+<div class="container">
   <form method="post" action="/job_poster">
+    <br>
+    <div>
+      <div class="col-sm-4">
+        <h2>
+          <button type="button" class="btn btn-primary btn-lg" value="COOK">COOK</button>
 
-    <h2>
-      <input type="submit" name="job_type" value="cook">
-  
-    </h2>
-    <h2>
-      <input type="submit" name="job_type" value="house_repair">
-
-    </h2>
+        </h2>
       </div>
+      <div class="col-sm-4">
+        <h2>
+          <button type="button" class="btn btn-primary btn-lg" value="HOUSE REPAIR">HOUSE REPAIR</button>
+        </h2>
+      </div>
+      <div class="col-sm-4">
+        <h2>
+          <button type="button" class="btn btn-primary btn-lg" value="GARDENING">GARDENING</button>
+        </h2>
+      </div>
+    </div>
+    <br><br>
   </form>
 
+</div>
 
-  <h2>Gardening</h2>
 
 </div>
+
+</body>
+</html>
 
 {% endblock %}
