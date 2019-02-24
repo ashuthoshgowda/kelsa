@@ -4,6 +4,7 @@ from flask import request, redirect, flash
 from docusign import embedded_signing_ceremony
 from config import Config
 from forms import JobPosterform
+from datetime import datetime, timedelta
 
 
 application = Flask(__name__)
@@ -29,11 +30,13 @@ def job_seeker():
 @application.route('/job_poster', methods=['GET', 'POST'])
 def job_poster():
     if request.method == 'POST':
-        job_type = request.form['job_type']
-        return redirect(url_for('job_detail',job_type=job_type))
+        print(request.form)
+        return redirect(url_for('thank_you_poster'))
 
     elif request.method == 'GET':
-        return render_template('job_poster.html')
+        t = datetime.now()
+        hour = t.replace(second=0, microsecond=0, minute=0, hour=t.hour)+timedelta(hours=t.minute//30)
+        return render_template('job_poster.html', hour = hour.hour)
 
 @application.route('/job_detail/<job_type>', methods=['GET', 'POST'])
 def job_detail(job_type=None, invalid_args=False):
