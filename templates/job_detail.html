@@ -3,28 +3,22 @@
  <head>
    <meta charset="utf-8">
    <title>Kelsa</title>
+   <link rel="stylesheet" href="{{ url_for('static',  filename='css/template.css') }}">
  </head>
  <body>
     <header>
       <div class="container">
-        <h1 class="logo">I am looking to hire a :</h1>
-        <form method="post" action="/job_poster">
+        <h1 class="logo">Job Type : {{job_type}}</h1>
+        <form method="post" action="/thank_you_poster">
 
           <h2>
-            <input type="submit" name="job_type" value="cook">
-        
-          </h2>
-          <h2>
-            <input type="submit" name="job_type" value="house_repair">
-
+            <input type="submit" name="post_job" value="Post Job">
           </h2>
             </div>
         </form>
 
-
-        <h2>Gardening</h2>
-
       </div>
+
     </header>
     {% block content %}
     {% endblock %}

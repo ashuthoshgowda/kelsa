@@ -1,6 +1,6 @@
 from flask import Flask, url_for
 from flask import render_template
-from flask import request
+from flask import request, redirect
 
 
 
@@ -15,13 +15,41 @@ def home():
 def hello(name=None):
     return render_template('hello.html', name=name)
 
-@application.route('/job_seeker')
+@application.route('/job_seeker', methods=['GET', 'POST'])
 def job_seeker():
-    return render_template('job_seeker.html')
+    if request.method == 'POST':
+        return redirect(embedded_signing_ceremony(), code=302)
 
-@application.route('/job_poster')
+    elif request.method == 'GET':
+        return render_template('job_seeker.html', url = request.url)
+
+@application.route('/job_poster', methods=['GET', 'POST'])
 def job_poster():
-    return render_template('job_poster.html')
+    if request.method == 'POST':
+        job_type = request.form['job_type']
+        return redirect(url_for('job_detail',job_type=job_type))
+
+    elif request.method == 'GET':
+        return render_template('job_poster.html')
+
+@application.route('/job_detail/<job_type>', methods=['GET', 'POST'])
+def job_detail(job_type=None):
+    if request.method == 'POST':
+        return redirect(url_for('thank_you_poster'))
+
+    elif request.method == 'GET':
+        return render_template('job_detail.html',job_type=job_type)
+
+@application.route('/thank_you_poster', methods=['GET', 'POST'])
+def thank_you_poster():
+    return render_template('thank_you_poster.html')
+
+@application.route('/thank_you_seeker', methods=['GET', 'POST'])
+def thank_you_seeker():
+    return render_template('thank_you_seeker.html')
+
+
+
 
 
 if __name__ == "__main__":

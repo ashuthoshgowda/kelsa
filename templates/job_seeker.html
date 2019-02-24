@@ -10,9 +10,14 @@
       <div class="container">
         <h1 class="logo">Who are you?</h1>
         <h1>Job Seeker</h1>
+
       </div>
     </header>
     {% block content %}
+    <form action="{{url}}" method="post">
+          <input type="submit" value="Accept the JOB!"
+              style="width:13em;height:2em;background:#1f32bb;color:white;font:bold 1.5em arial;margin: 3em;"/>
+          </form>
     {% endblock %}
  </body>
 </html>
