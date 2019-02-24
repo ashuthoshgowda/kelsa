@@ -17,7 +17,7 @@ signer_email = 'amanyadava@gmail.com'
 # The document you wish to send. Path is relative to the root directory of this repo.
 file_name_path = 'demo_documents/World_Wide_Corp_lorem.pdf'
 # The url of this web application
-base_url = 'http://127.0.0.1:5000'
+base_url = 'www.the2353.org'
 client_user_id = '123' # Used to indicate that the signer will use an embedded
                        # Signing Ceremony. Represents the signer's userId within
                        # your application.
