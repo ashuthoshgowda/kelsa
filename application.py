@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from db_setup import init_db
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+import random
 
 init_db()
 
@@ -32,7 +33,26 @@ def job_seeker():
         return redirect(embedded_signing_ceremony(), code=302)
 
     elif request.method == 'GET':
-        return render_template('job_seeker.html', url = request.url)
+        tasks = [{"name":"Monica",
+        "rate":45,
+        "job_type":"Garderner",
+        "jd":"Mow the lawn - 14ft * 20ft"},
+        {"name":"Erica",
+        "rate":30,
+        "job_type":"Cook",
+        "jd":"Cook Chicken Tikka Masala for the Party of 5"},
+        {"name":"Rita",
+        "rate":25,
+        "job_type":"Driver",
+        "jd":"Drive my car from the Downtown Bar"},
+        {"name":"Tina",
+        "rate":35,
+        "job_type":"Garderner",
+        "jd":"Mow the lawn - 14ft * 20ft"}]
+
+        task = random.choice(tasks)
+        print(task)
+        return render_template('job_seeker.html',task=task, url = request.url)
 
 @application.route('/job_poster', methods=['GET', 'POST'])
 def job_poster():
