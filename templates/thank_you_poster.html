@@ -2,3 +2,19 @@
 <title>Thank you Job Poster</title>
 
   <h1>Thanks you for posting</h1>
+
+  <br><br>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <h2>New job recorded:</h2>
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  <br><br>
+  <h2>Matching and getting your job done...</h2>

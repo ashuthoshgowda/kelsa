@@ -1,6 +1,6 @@
 from flask import Flask, url_for
 from flask import render_template
-from flask import request, redirect
+from flask import request, redirect, flash
 from docusign import embedded_signing_ceremony
 from config import Config
 from forms import JobSeekerForm
@@ -36,12 +36,20 @@ def job_poster():
         return render_template('job_poster.html')
 
 @application.route('/job_detail/<job_type>', methods=['GET', 'POST'])
-def job_detail(job_type=None):
-    if request.method == 'POST':
-        return redirect(url_for('thank_you_poster'))
+def job_detail(job_type=None, invalid_args=False):
+    form = JobSeekerForm()
 
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            flash('Login requested for job_description {}'.format(
+                form.job_description.data))
+            return redirect(url_for('thank_you_poster'))
+        else:
+            flash('Please enter valid data!')
+            #return redirect('/index')
+            return render_template('job_detail.html',job_type=job_type, form=form, invalid_args=True)
     elif request.method == 'GET':
-        return render_template('job_detail.html',job_type=job_type, form=JobSeekerForm())
+        return render_template('job_detail.html',job_type=job_type, form=form, invalid_args=invalid_args)
 
 @application.route('/thank_you_poster', methods=['GET', 'POST'])
 def thank_you_poster():
