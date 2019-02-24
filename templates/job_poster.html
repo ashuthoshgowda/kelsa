@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
- <head>
-   <meta charset="utf-8">
-   <title>Kelsa</title>
- </head>
- <body>
-    <header>
-      <div class="container">
-        <h1 class="logo">I am looking to hire a :</h1>
-        <form method="post" action="/job_poster">
+{% extends "base.html" %}
 
-          <h2>
-            <input type="submit" name="job_type" value="cook">
-        
-          </h2>
-          <h2>
-            <input type="submit" name="job_type" value="house_repair">
+{% block content %}
 
-          </h2>
-            </div>
-        </form>
+<div class="container">
+  <h1 class="logo">I am looking to hire a :</h1>
+  <form method="post" action="/job_poster">
 
+    <h2>
+      <input type="submit" name="job_type" value="cook">
+  
+    </h2>
+    <h2>
+      <input type="submit" name="job_type" value="house_repair">
 
-        <h2>Gardening</h2>
-
+    </h2>
       </div>
-    </header>
-    {% block content %}
-    {% endblock %}
- </body>
-</html>
+  </form>
+
+
+  <h2>Gardening</h2>
+
+</div>
+
+{% endblock %}
