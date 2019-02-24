@@ -17,7 +17,8 @@ signer_email = 'amanyadava@gmail.com'
 # The document you wish to send. Path is relative to the root directory of this repo.
 file_name_path = 'demo_documents/service_contract.pdf'
 # The url of this web application
-base_url = 'www.the2353.org'
+base_url = 'http://www.the2353.org'
+
 client_user_id = '123' # Used to indicate that the signer will use an embedded
                        # Signing Ceremony. Represents the signer's userId within
                        # your application.
@@ -100,7 +101,7 @@ def embedded_signing_ceremony():
         recipient_id = '1', return_url = base_url + '/thank_you_seeker',
         user_name = signer_name, email = signer_email
     )
-
+    
     results = envelope_api.create_recipient_view(account_id, envelope_id,
         recipient_view_request = recipient_view_request)
 
@@ -108,4 +109,5 @@ def embedded_signing_ceremony():
     # Step 4. The Recipient View URL (the Signing Ceremony URL) has been received.
     #         Redirect the user's browser to it.
     #
+    
     return results.url
