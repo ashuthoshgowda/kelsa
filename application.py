@@ -9,6 +9,7 @@ from db_setup import init_db
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import random
+import requests
 
 init_db()
 
@@ -36,23 +37,33 @@ def job_seeker():
         tasks = [{"name":"Monica",
         "rate":45,
         "job_type":"Gardener",
-        "jd":"Mow the lawn - 14ft * 20ft"},
+        "jd":"Mow the lawn - 14ft * 20ft","address":"2353+Running+Water+Ct+Santa+Clara"},
         {"name":"Erica",
         "rate":30,
         "job_type":"Cook",
-        "jd":"Cook Chicken Tikka Masala for the Party of 5"},
+        "jd":"Cook Chicken Tikka Masala for the Party of 5","address":"4400+Bohannon+Drive+Menlo+Park"},
         {"name":"Rita",
         "rate":25,
         "job_type":"Driver",
-        "jd":"Drive my car from the Downtown Bar"},
+        "jd":"Drive my car from the Downtown Bar","address":"2275+Riverbed+Ct+Santa+Clara"},
         {"name":"Tina",
         "rate":35,
         "job_type":"Gardener",
-        "jd":"Mow the lawn - 14ft * 20ft"}]
-
+        "jd":"Mow the lawn - 14ft * 20ft","address":"550+Kiely+Boulevard+San+Jose"}]
         task = random.choice(tasks)
+        app_id = 'KKdqdXodDZWBsO29RHHh'
+        app_code ='iccnPbuZuJBKs4v_g6FzoQ'
+        URL= "https://geocoder.api.here.com/6.2/geocode.json?app_id={}&app_code={}&searchtext={}".format(app_id,app_code,task['address'])
+        ##maps Part
+        r = requests.get(url=URL)
+        r = r.json()
+        lat = r['Response']['View'][0]['Result'][0]['Location']['DisplayPosition']['Latitude']
+        lon = r['Response']['View'][0]['Result'][0]['Location']['DisplayPosition']['Longitude']
+        image = 'https://image.maps.api.here.com/mia/1.6/mapview?c={}%2C{}&z=14&app_id={}&app_code={}'.format(lat,lon,app_id,app_code)
+        #image =  requests.get(image_url)
+
         print(task)
-        return render_template('job_seeker.html',task=task, url = request.url)
+        return render_template('job_seeker.html',task=task,image=image, url = request.url)
 
 @application.route('/job_poster', methods=['GET', 'POST'])
 def job_poster():
