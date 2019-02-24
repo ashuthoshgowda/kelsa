@@ -1,7 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!doctype html>
-<title>Thank you Job Seeker</title>
+<h2 align="center">You have an open task
+<p>
+<h3 align="center">
+<img class="img-responsive" src="opentask.png" align="center" style="width:28%">
+<p>Meet Ashutosh in one hour at Santa Clara for this gig!<br></br>
+<form>
+  <div class="input-group">
+     <div class="input-group-btn">
+         <div class="col-md-6">  <button type="button" class="btn btn-default btn-lg">
+         <a href="{{ url_for('job_seeker') }}">Share Location
+</a> </button> </div> <div class="input-group">
+     <div class="input-group-btn">
+       <button type="button" class="btn btn-default btn-lg">
+         <a href="{{ url_for('job_seeker') }}">Review your task</a></button>
 
-  <h1>I know what kind of Jobs you'll enjoy *wink, wink, Nudge, Nudge*</h1>
+       </div>
+      </div>
+   </div>
+ </form>
+</div>
+
+   </div>
+ </div>
+</div>
+
+  {% endblock %}

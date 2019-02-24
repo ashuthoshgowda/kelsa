@@ -12,11 +12,6 @@ from flask_migrate import Migrate
 init_db()
 
 
-
-
-
-
-
 application = Flask(__name__)
 application.config.from_object(Config)
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'

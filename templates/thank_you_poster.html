@@ -1,25 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!doctype html>
-<title>Thank you Job Poster</title>
 
-  <h1>Thanks you for posting</h1>
+  <h2 align="center">Well that's a job done!
+<p><br></br>
+<h3 align="center">We would like to know how well though...
+ <p>
+  <div class="col-md-12">
 
-  <br><br>
-
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <h2>New job recorded:</h2>
-  <ul>
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}
-
-  <br><br>
-  <h2>Matching and getting your job done...</h2>
-
+      <a href="feedback-png-image.png">
+        <img src="feedback-png-image.png" style="width:35%">
+        </a>
+<br></br>
+    <form>
+    <div class="input-group">
+      <div class="input-group-btn">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg"><a href="{{ url_for('job_seeker') }}">Review our taskforce</a></button>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg"><a href="{{ url_for('job_poster') }}">Get some more work done</a></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<p><br></br>
   {% endblock %}
