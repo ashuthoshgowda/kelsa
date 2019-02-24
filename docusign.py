@@ -15,7 +15,7 @@ account_id = '7988731'
 signer_name = 'Aman Yadav'
 signer_email = 'amanyadava@gmail.com'
 # The document you wish to send. Path is relative to the root directory of this repo.
-file_name_path = 'demo_documents/World_Wide_Corp_lorem.pdf'
+file_name_path = 'demo_documents/service_contract.pdf'
 # The url of this web application
 base_url = 'www.the2353.org'
 client_user_id = '123' # Used to indicate that the signer will use an embedded
