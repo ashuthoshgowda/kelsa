@@ -5,7 +5,7 @@ from docusign import embedded_signing_ceremony
 from config import Config
 from forms import JobPosterform
 from datetime import datetime, timedelta
-+from db_setup import init_db
+from db_setup import init_db
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -15,12 +15,12 @@ init_db()
 
 
 
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 
-db = SQLAlchemy(application)
 
 application = Flask(__name__)
 application.config.from_object(Config)
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+db = SQLAlchemy(application)
 
 @application.route('/')
 def home():
