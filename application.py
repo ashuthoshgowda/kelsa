@@ -2,10 +2,12 @@ from flask import Flask, url_for
 from flask import render_template
 from flask import request, redirect
 from docusign import embedded_signing_ceremony
-
+from config import Config
+from forms import JobSeekerForm
 
 
 application = Flask(__name__)
+application.config.from_object(Config)
 
 @application.route('/')
 def home():
@@ -39,7 +41,7 @@ def job_detail(job_type=None):
         return redirect(url_for('thank_you_poster'))
 
     elif request.method == 'GET':
-        return render_template('job_detail.html',job_type=job_type)
+        return render_template('job_detail.html',job_type=job_type, form=JobSeekerForm())
 
 @application.route('/thank_you_poster', methods=['GET', 'POST'])
 def thank_you_poster():
