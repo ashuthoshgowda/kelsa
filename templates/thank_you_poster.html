@@ -2,28 +2,50 @@
 
 {% block content %}
 
-  <h2 align="center">Well that's a job done!
-<p><br></br>
-<h3 align="center">We would like to know how well though...
- <p>
-  <div class="col-md-12">
 
-      <a href="feedback-png-image.png">
-        <img src="feedback-png-image.png" style="width:35%">
-        </a>
-<br></br>
-    <form>
-    <div class="input-group">
-      <div class="input-group-btn">
-        <div class="col-md-6">
-          <button type="button" class="btn btn-default btn-lg"><a href="{{ url_for('job_seeker') }}">Review our taskforce</a></button>
-        </div>
-        <div class="col-md-6">
-          <button type="button" class="btn btn-default btn-lg"><a href="{{ url_for('job_poster') }}">Get some more work done</a></button>
-        </div>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="page-header">
+    <h1 align="center">Well that's a job done!</h1>
+    <h2 align = "center">We would like to know how well though...</h2>
+  </div>
+</div>
+
+<div class="input-group">
+    <div class="input-group-btn">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-default btn-lg"><a href="{{ url_for('job_seeker') }}">Review our taskforce</a></button>
+      </div>
+      <div class="col-md-6">
+        <button type="button" class="btn btn-default btn-lg"><a href="{{ url_for('job_poster') }}">Get some more work done</a></button>
       </div>
     </div>
-  </form>
-</div>
-<p><br></br>
-  {% endblock %}
+  </div>
+
+
+
+
+  <div id="services" class="container-fluid text-center">
+    <h2>JOB POSTER</h2>
+    <h4>Find your next gig</h4>
+    <br>
+    <div class="row slideanim">
+      <div class="col-sm-4">
+        <i class='fas fa-tasks' style='font-size:48px;color:blue'></i>
+        <h4>DESCRIBE YOUR TASK</h4>
+      </div>
+      <div class="col-sm-4">
+        <i class='fas fa-user-friends' style='font-size:48px;color:orange'></i>
+        <h4>MATCH WITH LOCAL TASKER</h4>
+      </div>
+      <div class="col-sm-4">
+        <i class='far fa-thumbs-up' style='font-size:48px;color:green'></i>
+        <h4>GET IT DONE!</h4>
+      </div>
+    </div>
+    <br><br>
+  </div>
+
+    {% endblock %}
