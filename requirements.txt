@@ -18,7 +18,7 @@ idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10
 jwcrypto==0.6.0
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.1.1
 public==2018.11.20
 py-oauth2==0.0.10
