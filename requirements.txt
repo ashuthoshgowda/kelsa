@@ -17,7 +17,7 @@ gunicorn==19.9.0
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10
-jwcrypto==0.6.0
+jwcrypto==1.4
 Mako==1.0.7
 MarkupSafe==1.1.1
 public==2018.11.20
